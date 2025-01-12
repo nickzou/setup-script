@@ -23,8 +23,9 @@ setup_package_manager() {
     if [[ "$OSTYPE" == "darwin"* ]]; then
         if ! has_command brew; then
             log "Installing Homebrew..."
-            /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+            sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         fi
+
     elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
 	    if [ -f "/etc/os-release" ]; then
             . /etc/os-release
@@ -44,8 +45,8 @@ main() {
     # Install your tools here
     log "Installing packages..."
     if has_command brew; then
-        brew install neovim git lazygit tmux starship stow
-	brew install --cask ghostty
+        sudo brew install neovim git lazygit tmux starship stow
+	sudo brew install --cask ghostty
     elif [ -f "/etc/os-release" ]; then
         . /etc/os-release
         if [[ "$ID_LIKE" == *"debian"* ]] || [[ "$ID" == "debian" ]] || [[ "$ID" == "ubuntu" ]]; then

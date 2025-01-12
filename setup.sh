@@ -36,7 +36,8 @@ main() {
     # Install your tools here
     log "Installing packages..."
     if has_command brew; then
-        brew install neovim git lazygit stow
+        brew install neovim git lazygit tmux stow
+	brew install --cask ghostty
     fi
     
     # Setup dotfiles
